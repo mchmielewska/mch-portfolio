@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant&family=Benne&family=Cutive+Mono&display=swap');
+
+$almost-black: #252525;
+$dark-grey: #999999;
+$grey: #CCCCCC;
+$light: #f2f2f2;
+$beige: #f3eee8;
+$dusted-pink: #d6adb4;
+$pink: #f7bac4;
+$red: #dc3545;
+$yellow: #ffc107;
+$white: #ffffff;
+
+$sans-serif: 'Assistant', sans-serif;
+$serif: 'Benne', serif;
+$mono: 'Cutive Mono', monospace;
+
+$x-small: 0.8rem;
+$small: 1rem;
+$medium: 1.5rem;
+$large: 4rem;
+$x-large: 6rem;
+$xx-large: 12rem;
+
+$circle-size: 50vw;
+
+@mixin flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+@mixin side-padding {
+  padding: 0 1rem;
+}
+
+@mixin clear-m-p {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin circle($color) {
+
+  .circle {
+    @include clear-m-p;
+    @include flex-centered;
+
+    flex-direction: column;
+    background: $color;
+    height: $circle-size;
+    border-top-left-radius: $circle-size * 2;
+    border-top-right-radius: $circle-size * 2;
+    margin-bottom: 15rem;
+
+    @include section-title;
+    z-index: 5;
+    position: relative;
+
+    &:hover h1.title {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+
+    &:hover img.project-image.left {
+      -webkit-transform: rotate(-10deg);
+      transform: rotate(-10deg);
+    }
+
+    &:hover img.project-image.right {
+      -webkit-transform: rotate(10deg);
+      transform: rotate(10deg);
+    }
+
+    .section-title {
+      position: absolute;
+      text-align: center;
+      top: 50%;
+    }
+
+    img.project-image {
+      position: absolute;
+      width: 15rem;
+      z-index: 10;
+      -webkit-transition: -webkit-transform 0.5s ease-in-out;
+      transition: transform 0.5s ease-in-out;
+      margin: 1rem;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+      0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+      border-radius: 1.25rem;
+    }
+
+    img.left {
+      transform: rotate(-5deg);
+      left: calc(50% - 15rem);
+      top: calc(15% - 250px);
+    }
+
+    img.right {
+      transform: rotate(2deg);
+      right: calc(50% - 15rem);
+      top: calc(15% - 250px);
+    }
+  }
+}
+
+@mixin section-title {
+  .section-title {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+
+    h1.title {
+      font-size: $x-large;
+      font-family: $serif;
+      -webkit-transition: -webkit-transform 0.5s ease-in-out;
+      transition: transform 0.5s ease-in-out;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
+  font-family: $sans-serif;
+}
+
+body {
+  background: $white;
+  color: $almost-black;
+  font-family: $sans-serif;
+}
+
+a {
+  color: $dark-grey;
+  text-decoration: none;
+}
+
+.content {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+nav {
+  @include clear-m-p;
+  padding: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  border-bottom: 1px solid #ddd;
+
+  .logo {
+    margin-right: auto;
+  }
+
+  .menu-links {
+    font-family: $serif;
+    font-size: $medium;
+  }
+
+  a {
+    margin-left: 12px;
+  }
+}
+
+.projects-section {
+  z-index: 1;
+  background: $white;
+  @include circle($beige);
+  .circle {
+    margin-bottom: 0;
+  }
+}
+
+.about-section {
+  z-index: 1;
+  background: $light;
+  @include circle($white);
+  .circle {
+    flex-direction: row;
+  }
+
+  h2 {
+    font-family: $serif;
+    color: $pink;
+    font-size: $xx-large;
+    line-height: 5rem;
+  }
+
+  .description {
+    &:before {
+      content: '(';
+      font-size: $x-large;
+      position: relative;
+      bottom: -$x-large;
+      color: $grey;
+    }
+
+    &:after {
+      content: ')';
+      font-size: $x-large;
+      position: relative;
+      left: 17rem;
+      bottom: 7.5rem;
+      color: $grey;
+    }
+
+    p {
+      font-family: $mono;
+      max-width: 15rem;
+      padding-left: 3rem;
+      text-align: justify;
+    }
+  }
+
+  &::before {
+    height: 100px;
+    display: inline-block;
+    background: $beige;
+    content: '';
+  }
+}
+
+
+footer {
+  @include flex-centered;
+  @include side-padding;
+  @include clear-m-p;
+  padding: 0 1rem;
+  justify-content: space-between;
+  background: $light;
+  height: 10rem;
+
+  p {
+    @include uppercase;
+    font-size: $x-small;
+  }
+
+  a {
+    color: $dark-grey;
+  }
+
+  .social-icons {
+    .icon {
+      margin: 0 0.5rem;
+      width: $medium;
+      height: $medium;
+      fill: $dark-grey;
+      -webkit-transition: -webkit-transform 0.8s ease-in-out;
+      transition: transform 0.8s ease-in-out;
+
+      &:hover {
+        fill: $yellow;
+        -webkit-transform: rotate(30deg);
+        transform: rotate(30deg);
+      }
+    }
+  }
+}
