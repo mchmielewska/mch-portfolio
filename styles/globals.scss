@@ -44,35 +44,75 @@ $circle-size: 50vw;
   padding: 0;
 }
 
+@mixin title-images-animation {
+  &:hover h1.title {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  &:hover img.left {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+
+  &:hover img.right {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+}
+
+@mixin title-images {
+  img.project-image {
+    position: absolute;
+    width: 15rem;
+    z-index: 10;
+    -webkit-transition: -webkit-transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    margin: 1rem;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+      0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 1.25rem;
+  }
+
+  img.left {
+    transform: rotate(-5deg);
+    left: calc(50% - 15rem);
+    top: calc(15% - 250px);
+  }
+
+  img.right {
+    transform: rotate(2deg);
+    right: calc(50% - 15rem);
+    top: calc(15% - 250px);
+  }
+}
+
+@mixin circle-shape($color) {
+  @include clear-m-p;
+  @include flex-centered;
+
+  flex-direction: column;
+  background: $color;
+  height: $circle-size;
+  border-top-left-radius: $circle-size * 2;
+  border-top-right-radius: $circle-size * 2;
+  margin-bottom: 15rem;
+}
+
+@mixin full-circle($color) {
+  @include circle-shape($color);
+  height: $circle-size * 2;
+  margin: 0;
+}
+
 @mixin circle($color) {
   .circle {
-    @include clear-m-p;
-    @include flex-centered;
-
-    flex-direction: column;
-    background: $color;
-    height: $circle-size;
-    border-top-left-radius: $circle-size * 2;
-    border-top-right-radius: $circle-size * 2;
-    margin-bottom: 15rem;
+    @include circle-shape($color);
 
     @include section-title;
     position: relative;
 
-    &:hover h1.title {
-      -webkit-transform: scale(1.1);
-      transform: scale(1.1);
-    }
-
-    &:hover img.project-image.left {
-      -webkit-transform: rotate(-10deg);
-      transform: rotate(-10deg);
-    }
-
-    &:hover img.project-image.right {
-      -webkit-transform: rotate(10deg);
-      transform: rotate(10deg);
-    }
+    @include title-images-animation;
 
     .section-title {
       position: absolute;
@@ -80,29 +120,7 @@ $circle-size: 50vw;
       top: 50%;
     }
 
-    img.project-image {
-      position: absolute;
-      width: 15rem;
-      z-index: 10;
-      -webkit-transition: -webkit-transform 0.5s ease-in-out;
-      transition: transform 0.5s ease-in-out;
-      margin: 1rem;
-      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-        0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-      border-radius: 1.25rem;
-    }
-
-    img.left {
-      transform: rotate(-5deg);
-      left: calc(50% - 15rem);
-      top: calc(15% - 250px);
-    }
-
-    img.right {
-      transform: rotate(2deg);
-      right: calc(50% - 15rem);
-      top: calc(15% - 250px);
-    }
+    @include title-images;
   }
 }
 
@@ -256,50 +274,157 @@ nav {
   .projects {
     background: $beige;
     @include flex-centered;
+    @include clear-m-p;
 
     .container {
       @include flex-centered;
+      @include clear-m-p;
       flex-direction: column;
-      width: 75%;
-      padding: 2rem;
+      width: 100%;
+
+      .beige {
+        background: $white;
+        width: 100%;
+        @include clear-m-p;
+
+        .single-project {
+          @include full-circle($beige);
+          width: 100%;
+
+          grid-gap: 2rem;
+          padding: 2rem 0.5rem;
+
+          .details {
+            ul.tech > li {
+              border: 2px solid $almost-black;
+              background: $white;
+            }
+
+            ul.tech {
+              li:hover {
+                background: $dusted-pink;
+                border-color: $dusted-pink;
+              }
+            }
+          }
+        }
+      }
+
+      .light {
+        background: $white;
+        width: 100%;
+        @include clear-m-p;
+
+        .single-project {
+          @include full-circle($light);
+          width: 100%;
+
+          grid-gap: 2rem;
+          padding: 2rem 0.5rem;
+
+          .details {
+            ul.tech > li {
+              border: 2px solid $almost-black;
+              background: $white;
+            }
+
+            ul.tech {
+              li:hover {
+                background: $yellow;
+                border-color: $yellow;
+              }
+            }
+          }
+        }
+      }
+
+      .light-bg {
+        background: $light;
+        width: 100%;
+        @include clear-m-p;
+      }
 
       .single-project {
-        display: grid;
+        @include full-circle($white);
+        width: 100%;
+
         grid-gap: 2rem;
-        grid-template-columns: repeat(2, 1fr);
-        margin-bottom: 3rem;
+        padding: 2rem 0.5rem;
 
         h3 {
-          grid-column: -1/1;
           font-family: $serif;
-          font-size: $medium;
-          text-transform: uppercase;
+          font-size: $large;
           text-align: center;
+          -webkit-transition: -webkit-transform 0.5s ease-in-out;
+          transition: transform 0.5s ease-in-out;
+
+          &:hover {
+            -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+          }
+
+          a {
+            color: $almost-black;
+
+            &:hover {
+              color: $dark-grey
+            }
+          }
         }
 
         .images {
-          grid-column: 1;
           @include flex-centered;
           width: 100%;
+          position: relative;
+          margin-bottom: 2rem;
 
-          img {
+          .left-align {
+            text-align: left;
+          }
+
+          .right-align {
+            text-align: right;
+          }
+
+          &:hover {
+            -webkit-transition: -webkit-transform 0.5s ease-in-out;
+            transition: transform 0.5s ease-in-out;
+          }
+
+          @include title-images;
+          @include title-images-animation;
+
+          img.project-image {
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
               0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
             border-radius: 1.25rem;
             margin: 0.5rem;
-            width: 40%;
+            width: 75%;
+            max-height: 500px;
+            position: relative;
+            top: 1rem;
+          }
+
+          img.right {
+            right: 5%;
+          }
+
+          img.left {
+            left: 5%;
           }
         }
 
         .details {
-          grid-column: 2;
           @include flex-centered;
           flex-direction: column;
+          width: 50%;
 
-          p, ul, ul > li {
+          p,
+          ul,
+          ul > li {
             text-align: justify;
-            line-height: 1.5rem;
-            font-size: $x-small;
+            line-height: 2rem;
+            font-size: $small;
             margin-bottom: 1rem;
           }
 
@@ -309,9 +434,8 @@ nav {
               stroke: $dusted-pink;
             }
           }
-    
 
-          @include tech($grey)
+          @include tech($grey);
         }
       }
     }
