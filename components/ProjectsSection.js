@@ -1,3 +1,5 @@
+import Projects from './Projects';
+
 const ProjectsSection = () => {
   return (
     <div className="projects-section">
@@ -19,6 +21,7 @@ const ProjectsSection = () => {
           <p>Personal and commercial projects</p>
         </div>
       </div>
+      <Projects />
     </div>
   );
 };
