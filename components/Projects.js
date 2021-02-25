@@ -43,9 +43,9 @@ const Projects = () => {
           </div>
         </div>
 
-        <div class="beige">
+        <div className="beige">
           <div className="single-project">
-            <h3>Url Shortener</h3>
+            <h3><a href="https://github.com/mchmielewska/url-shortener">Url Shortener</a></h3>
 
             <div className="details">
               <p>
@@ -71,7 +71,7 @@ const Projects = () => {
         </div>
 
         <div className="single-project">
-          <h3>Star Wars App</h3>
+          <h3><a href="https://star-wars-moon.netlify.app/">Star Wars App</a></h3>
           <div className="images">
             <div className="right-align">
               <img src="/starwars_1.png" className="project-image left"></img>
@@ -103,9 +103,9 @@ const Projects = () => {
           </div>
         </div>
 
-        <div class="light">
+        <div className="light">
           <div className="single-project">
-            <h3>Weather App</h3>
+            <h3><a href="https://moon-weatherapp.netlify.app/">Weather App</a></h3>
             <div className="images">
               <div className="right-align">
                 <img
@@ -145,7 +145,7 @@ const Projects = () => {
 
         <div className="light-bg">
           <div className="single-project">
-            <h3>E-commerce site</h3>
+            <h3><a href="https://github.com/mchmielewska/IAIWebcamp-shop">E-commerce site</a></h3>
             <div className="images">
               <div className="right-align">
                 <img src="/shop_1.png" className="project-image left"></img>

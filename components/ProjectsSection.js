@@ -2,7 +2,7 @@ import Projects from './Projects';
 
 const ProjectsSection = () => {
   return (
-    <div className="projects-section">
+    <div className="projects-section"  id="projects">
       <div className="circle">
         <div className="project-images">
           <img

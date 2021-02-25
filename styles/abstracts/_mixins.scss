@@ -1,0 +1,187 @@
+@use './variables' as *;
+
+@mixin flex-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @mixin uppercase {
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+  }
+  
+  @mixin side-padding {
+    padding: 0 1rem;
+  }
+  
+  @mixin clear-m-p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  @mixin title-images-animation {
+    &:hover h1.title {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+  
+    &:hover img.left {
+      -webkit-transform: rotate(-10deg);
+      transform: rotate(-10deg);
+    }
+  
+    &:hover img.right {
+      -webkit-transform: rotate(10deg);
+      transform: rotate(10deg);
+    }
+  }
+  
+  @mixin title-images {
+    img.project-image {
+      position: absolute;
+      width: 15rem;
+      z-index: 10;
+      -webkit-transition: -webkit-transform 0.5s ease-in-out;
+      transition: transform 0.5s ease-in-out;
+      margin: 1rem;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+      border-radius: 1.25rem;
+    }
+  
+    img.left {
+      transform: rotate(-5deg);
+      left: calc(50% - 15rem);
+      top: calc(15% - 250px);
+    }
+  
+    img.right {
+      transform: rotate(2deg);
+      right: calc(50% - 15rem);
+      top: calc(15% - 250px);
+    }
+  }
+  
+  @mixin circle-shape($color) {
+    @include clear-m-p;
+    @include flex-centered;
+  
+    flex-direction: column;
+    background: $color;
+    height: $circle-size;
+    border-top-left-radius: $circle-size * 2;
+    border-top-right-radius: $circle-size * 2;
+    margin-bottom: 15rem;
+  }
+  
+  @mixin full-circle($color) {
+    @include circle-shape($color);
+    height: $circle-size * 2;
+    margin: 0;
+  }
+  
+  @mixin circle($color) {
+    .circle {
+      @include circle-shape($color);
+  
+      @include section-title;
+      position: relative;
+  
+      @include title-images-animation;
+  
+      .section-title {
+        position: absolute;
+        text-align: center;
+        top: 50%;
+      }
+  
+      @include title-images;
+    }
+  }
+  
+  @mixin section-title {
+    .section-title {
+      position: absolute;
+      text-align: center;
+      top: 50%;
+  
+      h1.title {
+        font-size: $x-large;
+        font-family: $serif;
+        -webkit-transition: -webkit-transform 0.5s ease-in-out;
+        transition: transform 0.5s ease-in-out;
+      }
+    }
+  }
+  
+  @mixin tech($color) {
+    ul.tech {
+      @include flex-centered;
+      font-family: $mono;
+      flex-direction: row;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+  
+    ul.tech > li {
+      margin: 0.5rem;
+      border: 2px solid $color;
+      padding: 0.5rem 1rem;
+      transition: 0.5s ease-in-out;
+      animation: 0.5s ease-in-out;
+      background: transparent;
+      font-weight: bold;
+  
+      &:hover {
+        border: 2px solid $color;
+        animation-name: tech;
+        background: $color;
+        color: $white;
+      }
+  
+      @keyframes tech {
+        0% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(-5deg);
+        }
+        50% {
+          transform: rotate(0deg);
+        }
+        75% {
+          transform: rotate(-5deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+  
+  @mixin icons {
+    margin: 0 0.5rem;
+    width: $medium;
+    height: $medium;
+    -webkit-transition: -webkit-transform 0.8s ease-in-out;
+    transition: transform 0.8s ease-in-out;
+  
+    &:hover {
+      -webkit-transform: rotate(30deg);
+      transform: rotate(30deg);
+    }
+  }
+  
+  @mixin social-icons($color) {
+    .social-icons {
+      .icon {
+        fill: $dark-grey;
+        @include icons;
+  
+        &:hover {
+          fill: $color;
+        }
+      }
+    }
+  }

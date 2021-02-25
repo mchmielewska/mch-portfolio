@@ -2,7 +2,7 @@ import SocialIcons from './SocialIcons';
 
 const AboutSection = () => {
   return (
-    <div className="about-section">
+    <div className="about-section" id="about">
       <div className="container">
         <div className="about-description">
           <p>
