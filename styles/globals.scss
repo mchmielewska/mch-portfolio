@@ -157,6 +157,10 @@ nav {
           border: none;
           background: $pink;
         }
+
+        &:focus, &:active, &:focus-visible {
+          outline: none;
+        }
       }
     }
   }

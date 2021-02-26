@@ -9,6 +9,8 @@
     "pretty": "prettier --write \"./**/*.{js,jsx,json}\""
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
+    "emailjs-com": "^2.6.4",
     "next": "10.0.7",
     "prettier": "^2.2.1",
     "react": "17.0.1",

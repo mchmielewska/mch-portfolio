@@ -1,16 +1,36 @@
 import React from 'react';
 import { useInput } from '../hooks/input';
+import * as emailjs from 'emailjs-com';
 
 const ContactForm = (props) => {
   const { value: name, bind: bindName, reset: resetName } = useInput('');
   const { value: email, bind: bindEmail, reset: resetEmail } = useInput('');
+  const { value: subject, bind: bindSubject, reset: resetSubject } = useInput('');
   const { value: message, bind: bindMessage, reset: resetMessage } = useInput('');
-
+  const userID = process.env.NEXT_PUBLIC_USER_ID;
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, email, message);
+
+    const emailTemplate = {
+        from_name: name,
+        from_email: email,
+        to_name: 'Monika Chmielewska',
+        subject,
+        message_html: message,
+      };
+
+      console.log(emailTemplate)
+      emailjs.send(
+        'gmail',
+        'template_wcyq856',
+        emailTemplate,
+        userID
+      )
+
     resetName();
     resetEmail();
+    resetSubject();
     resetMessage();
   };
 
@@ -18,16 +38,20 @@ const ContactForm = (props) => {
     <div className="container">
       <form onSubmit={handleSubmit}>
         <label>
-          Name:
-          <input type="text" {...bindName} />
+          Name *
+          <input type="text" required aria-required="true" {...bindName} />
         </label>
         <label>
-          E-mail:
-          <input type="email" {...bindEmail} />
+          E-mail *
+          <input type="email" required aria-required="true" {...bindEmail} />
         </label>
         <label>
-          Message:
-          <textarea rows="10" cols="70" {...bindMessage} />
+          Subject
+          <input type="text" {...bindSubject} />
+        </label>
+        <label>
+          Message *
+          <textarea rows="5" required aria-required="true" {...bindMessage} />
         </label>
 
         <input type="submit" value="Submit" />
