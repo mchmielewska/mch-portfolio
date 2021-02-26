@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import RenderCompleted from '../hooks/isMounted';
+import useRenderCompleted from '../hooks/isMounted';
 
 const ScrollToTopButton = () => {
-  const isMounted = RenderCompleted();
+  const isMounted = useRenderCompleted();
 
   useEffect(() => {
     const button = document.getElementById('scroll-to-top');

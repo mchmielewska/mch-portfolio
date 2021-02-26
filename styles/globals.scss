@@ -28,25 +28,32 @@ a {
   display: none;
   justify-content: center;
   align-content: center;
-  position: fixed; 
+  position: fixed;
   bottom: 1rem;
-  width: $large;
-  height: $large;
+  width: 2.7rem;
+  height: 2.7rem;
+  padding: 0.4rem;
   fill: $dark-grey;
-  right: 1rem; 
-  z-index: 99; 
-  border: none; 
-  outline: none; 
-  background-color: transparent; 
-  color: $dark-grey; 
-  cursor: pointer; 
-  padding: 1rem; 
-  border-radius: 50%; 
+  right: 1rem;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: $dark-grey;
+  cursor: pointer;
+  border-radius: 50%;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-  0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  svg {
+    transition: transform 0.5s ease-in-out;
+  }
 
   &:hover {
-    background-color: $white; /* Add a dark-grey background on hover */
+    background-color: $white;
+    fill: $dusted-pink;
+    svg {
+      transform: translateY(-2px);
+    }
   }
 }
 
@@ -75,6 +82,82 @@ nav {
 
     &:hover {
       color: $dusted-pink;
+    }
+  }
+}
+
+.contact-section {
+  @include clear-m-p;
+  @include flex-centered;
+  .container {
+    width: 50%;
+    @include flex-centered;
+
+    form {
+      font-family: $serif;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem;
+      margin: 2rem 0;
+      padding: 1rem;
+      width: 100%;
+
+      label {
+        grid-column: 1 / span 2;
+      }
+
+      input[type='text'],
+      input[type='email'], textarea {
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+        border: solid 1px transparent;
+        border-bottom: solid 1px $light;
+        width: 100%;
+        font-family: $sans-serif;
+        font-size: $small;
+        line-height: 2rem;
+        text-align: justify;
+
+        &:focus, &:active, &:focus-visible {
+          border: solid 1px transparent;
+          border-bottom: solid 1px $pink;
+          outline: none;
+        }
+      }
+
+      textarea {
+        resize: none;
+        width: 100%;
+
+        &:focus, &:active, &:focus-visible {
+          border: solid 1px $pink;
+          outline: none;
+        }
+      }
+
+      input[type='submit'] {
+        grid-column: 2;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+          0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+        padding: 0.5rem 1.5rem 0.3rem 1.5rem;
+        margin: 0.5rem 0;
+        border: none;
+        background: transparent;
+        transition: 0.5s ease-in-out;
+        text-transform: uppercase;
+        font-family: $serif;
+        font-weight: bold;
+        font-size: $small;
+        letter-spacing: 0.15rem;
+        border-radius: 1.25rem;
+
+        &:hover {
+          cursor: pointer;
+          color: $white;
+          border: none;
+          background: $pink;
+        }
+      }
     }
   }
 }
@@ -183,7 +266,7 @@ nav {
             color: $almost-black;
 
             &:hover {
-              color: $dark-grey
+              color: $dark-grey;
             }
           }
         }

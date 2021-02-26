@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const RenderCompleted = () => {
+const useRenderCompleted = () => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -14,4 +14,4 @@ const RenderCompleted = () => {
   return mounted;
 };
 
-export default RenderCompleted;
+export default useRenderCompleted;
