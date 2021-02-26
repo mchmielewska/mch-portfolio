@@ -1,6 +1,7 @@
 const GithubLink = (props) => {
+  const label = props.projectName + ' github repository';
   return (
-    <a href={props.path}>
+    <a href={props.path} aria-label={label} title="github repository">
       <svg
         fill="none"
         stroke="currentColor"

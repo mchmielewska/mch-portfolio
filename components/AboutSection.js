@@ -33,7 +33,7 @@ const AboutSection = () => {
           </ul>
         </div>
         <div className="about-image">
-          <img src="/profile.jpg" className="profile-image" />
+          <img src="/profile.jpg" className="profile-image" alt="profile image" />
         </div>
         <SocialIcons />
       </div>

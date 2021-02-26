@@ -1,6 +1,9 @@
 const DemoLink = (props) => {
+
+  const label = props.projectName + ' demo';
+
   return (
-    <a href={props.path}>
+    <a href={props.path} aria-label={label} title="check the demo">
       <svg
         fill="none"
         stroke="currentColor"

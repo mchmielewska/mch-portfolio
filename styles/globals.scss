@@ -79,6 +79,7 @@ nav {
 
   a {
     margin-left: $small;
+    color: $almost-black;
 
     &:hover {
       color: $dusted-pink;
@@ -92,6 +93,14 @@ nav {
   .container {
     width: 50%;
     @include flex-centered;
+    flex-direction: column;
+    padding: 1rem 0;
+
+    h1 {
+      font-size: $medium;
+      font-family: $serif;
+      color: $almost-black;
+    }
 
     form {
       font-family: $serif;
@@ -411,14 +420,14 @@ nav {
     transition: transform 0.8s ease-in-out;
   }
 
-  h2 {
+  h1 {
     font-family: $serif;
     color: $pink;
     font-size: $xx-large;
     line-height: 5rem;
   }
 
-  h2.welcome-title:hover .rotate {
+  h1.welcome-title:hover .rotate {
     -webkit-transform: rotate(15deg);
     transform: rotate(15deg);
   }

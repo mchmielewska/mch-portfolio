@@ -9,10 +9,10 @@ const Projects = () => {
           <h3><a href="https://fluffy-carnival-app.herokuapp.com/">Fluffy Carnival</a></h3>
           <div className="images">
             <div className="right-align">
-              <img src="/fluffy_1.png" className="project-image left"></img>
+              <img src="/fluffy_1.webp" className="project-image left" alt="fluffy carnival front page"></img>
             </div>
             <div className="left-align">
-              <img src="/fluffy_2.png" className="project-image right"></img>
+              <img src="/fluffy_2.webp" className="project-image right" alt="fluffy carnival - single post"></img>
             </div>
           </div>
           <div className="details">
@@ -37,8 +37,8 @@ const Projects = () => {
               <li>mongoDB</li>
             </ul>
             <div className="links">
-              <GithubLink path="https://github.com/mchmielewska/fluffy-carnival" />
-              <DemoLink path="https://fluffy-carnival-app.herokuapp.com/" />
+              <GithubLink path="https://github.com/mchmielewska/fluffy-carnival" projectName="Fluffy Carnival"/>
+              <DemoLink path="https://fluffy-carnival-app.herokuapp.com/" projectName="Fluffy Carnival"/>
             </div>
           </div>
         </div>
@@ -64,7 +64,7 @@ const Projects = () => {
                 <li>mocha & chai</li>
               </ul>
               <div className="links">
-                <GithubLink path="https://github.com/mchmielewska/url-shortener" />
+                <GithubLink path="https://github.com/mchmielewska/url-shortener" projectName="Url shortener"/>
               </div>
             </div>
           </div>
@@ -74,10 +74,10 @@ const Projects = () => {
           <h3><a href="https://star-wars-moon.netlify.app/">Star Wars App</a></h3>
           <div className="images">
             <div className="right-align">
-              <img src="/starwars_1.png" className="project-image left"></img>
+              <img src="/starwars_1.webp" className="project-image left" alt="star wars app - front page"></img>
             </div>
             <div className="left-align">
-              <img src="/starwars_2.png" className="project-image right"></img>
+              <img src="/starwars_2.webp" className="project-image right" alt="star wars app - one of the views"></img>
             </div>
           </div>
           <div className="details">
@@ -97,8 +97,8 @@ const Projects = () => {
               <li>jest & enzyme</li>
             </ul>
             <div className="links">
-              <GithubLink path="https://github.com/mchmielewska/star_wars_app" />
-              <DemoLink path="https://star-wars-moon.netlify.app/" />
+              <GithubLink path="https://github.com/mchmielewska/star_wars_app"  projectName="Star Wars App"/>
+              <DemoLink path="https://star-wars-moon.netlify.app/"  projectName="Star Wars App"/>
             </div>
           </div>
         </div>
@@ -109,14 +109,16 @@ const Projects = () => {
             <div className="images">
               <div className="right-align">
                 <img
-                  src="/weather_app1.png"
+                  src="/weather_app1.webp"
                   className="project-image left"
+                  alt="weather app - main view"
                 ></img>
               </div>
               <div className="left-align">
                 <img
-                  src="/weather_app2.png"
+                  src="/weather_app2.webp"
                   className="project-image right"
+                  alt="weather app - details"
                 ></img>
               </div>
             </div>
@@ -136,8 +138,8 @@ const Projects = () => {
                 <li>html</li>
               </ul>
               <div className="links">
-                <GithubLink path="https://github.com/mchmielewska/weather-app" />
-                <DemoLink path="https://moon-weatherapp.netlify.app/" />
+                <GithubLink path="https://github.com/mchmielewska/weather-app"  projectName="Weather App"/>
+                <DemoLink path="https://moon-weatherapp.netlify.app/"  projectName="Weather App"/>
               </div>
             </div>
           </div>
@@ -148,10 +150,10 @@ const Projects = () => {
             <h3><a href="https://github.com/mchmielewska/IAIWebcamp-shop">E-commerce site</a></h3>
             <div className="images">
               <div className="right-align">
-                <img src="/shop_1.png" className="project-image left"></img>
+                <img src="/shop_1.webp" className="project-image left" alt="e-commerce project - front page"></img>
               </div>
               <div className="left-align">
-                <img src="/shop_2.png" className="project-image right"></img>
+                <img src="/shop_2.webp" className="project-image right" alt="e-commerce project - product page"></img>
               </div>
             </div>
             <div className="details">
@@ -166,7 +168,7 @@ const Projects = () => {
                 <li>javascript</li>
               </ul>
               <div className="links">
-                <GithubLink path="https://github.com/mchmielewska/IAIWebcamp-shop" />
+                <GithubLink path="https://github.com/mchmielewska/IAIWebcamp-shop"  projectName="E-commerce site"/>
               </div>
             </div>
           </div>

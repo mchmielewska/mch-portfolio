@@ -5,28 +5,27 @@ import * as emailjs from 'emailjs-com';
 const ContactForm = (props) => {
   const { value: name, bind: bindName, reset: resetName } = useInput('');
   const { value: email, bind: bindEmail, reset: resetEmail } = useInput('');
-  const { value: subject, bind: bindSubject, reset: resetSubject } = useInput('');
-  const { value: message, bind: bindMessage, reset: resetMessage } = useInput('');
+  const { value: subject, bind: bindSubject, reset: resetSubject } = useInput(
+    ''
+  );
+  const { value: message, bind: bindMessage, reset: resetMessage } = useInput(
+    ''
+  );
   const userID = process.env.NEXT_PUBLIC_USER_ID;
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const emailTemplate = {
-        from_name: name,
-        from_email: email,
-        to_name: 'Monika Chmielewska',
-        subject,
-        message_html: message,
-      };
+      from_name: name,
+      from_email: email,
+      to_name: 'Monika Chmielewska',
+      subject,
+      message_html: message,
+    };
 
-      console.log(emailTemplate)
-      emailjs.send(
-        'gmail',
-        'template_wcyq856',
-        emailTemplate,
-        userID
-      )
+    console.log(emailTemplate);
+    emailjs.send('gmail', 'template_wcyq856', emailTemplate, userID);
 
     resetName();
     resetEmail();
@@ -36,6 +35,7 @@ const ContactForm = (props) => {
 
   return (
     <div className="container">
+      <h1>Contact me!</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Name *
