@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './breakpoints' as *;
 
 @mixin flex-centered {
     display: flex;
@@ -40,7 +41,8 @@
   @mixin title-images {
     img.project-image {
       position: absolute;
-      width: 15rem;
+      
+      width: 7.5rem;
       z-index: 10;
       -webkit-transition: -webkit-transform 0.5s ease-in-out;
       transition: transform 0.5s ease-in-out;
@@ -48,18 +50,56 @@
       box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
         0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
       border-radius: 1.25rem;
+
+      @include sm {
+        width: 10rem;
+      }
+
+      @include md {
+        width: 12.5rem;
+      }
+
+      @include lg {
+        width: 15rem;
+      }
     }
   
     img.left {
       transform: rotate(-5deg);
-      left: calc(50% - 15rem);
-      top: calc(15% - 250px);
+      left: calc(50% - 8rem);
+      top: calc(15% - 150px);
+
+      @include rwd(600) {
+        top: calc(15% - 250px);
+        left: calc(50% - 10rem);
+      }
+      
+      @include md {
+        left: calc(50% - 12rem);
+      }
+
+      @include lg {
+        left: calc(50% - 15rem);
+      }
     }
   
     img.right {
       transform: rotate(2deg);
-      right: calc(50% - 15rem);
-      top: calc(15% - 250px);
+      right: calc(50% - 8rem);
+      top: calc(15% - 150px);
+
+      @include rwd(600) {
+        top: calc(15% - 250px);
+        right: calc(50% - 10rem);
+      }
+
+      @include md {
+        right: calc(50% - 12rem);
+      }
+
+      @include lg {
+        right: calc(50% - 15rem);
+      }
     }
   }
   
@@ -69,16 +109,40 @@
   
     flex-direction: column;
     background: $color;
-    height: $circle-size;
+    height: $circle-size * 2;
     border-top-left-radius: $circle-size * 2;
     border-top-right-radius: $circle-size * 2;
     margin-bottom: 15rem;
+
+    @include rwd(600) {
+      height: $circle-size * 1.25;
+    }
+
+    @include md {
+      height: $circle-size * 1.5;
+    }
+
+    @include lg {
+      height: $circle-size * 1.1;
+    }
   }
   
   @mixin full-circle($color) {
     @include circle-shape($color);
-    height: $circle-size * 2;
+    height: $circle-size * 4;
     margin: 0;
+
+    @include rwd(600) {
+      height: $circle-size * 2.5;
+    }
+
+    @include md {
+      height: $circle-size * 2.25;
+    }
+
+    @include lg {
+      height: $circle-size * 2.1;
+    }
   }
   
   @mixin circle($color) {
@@ -107,10 +171,14 @@
       top: 50%;
   
       h2.title {
-        font-size: $x-large;
+        font-size: $large;
         font-family: $serif;
         -webkit-transition: -webkit-transform 0.5s ease-in-out;
         transition: transform 0.5s ease-in-out;
+
+        @include md {
+          font-size: $x-large;
+        }
       }
     }
   }
@@ -125,13 +193,20 @@
     }
   
     ul.tech > li {
-      margin: 0.5rem;
+      margin: 0.35rem;
       border: 2px solid $color;
-      padding: 0.5rem 1rem;
+      padding: 0.35rem 0.5rem;
       transition: 0.5s ease-in-out;
       animation: 0.5s ease-in-out;
       background: transparent;
       font-weight: bold;
+      font-size: $x-small;
+
+      @include lg {
+        margin: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-size: $small;
+      }
   
       &:hover {
         border: 2px solid $color;

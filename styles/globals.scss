@@ -61,12 +61,21 @@ nav {
   @include clear-m-p;
   padding: 1rem 0;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   border-bottom: 1px solid #ddd;
 
+  @include md {
+    justify-content: space-between;
+  }
+
   .logo {
-    margin-right: auto;
+    margin-bottom: 1rem;
+
+    @include sm {
+      margin-bottom: 0;
+    }
   }
 
   .menu-links {
@@ -75,6 +84,9 @@ nav {
     text-transform: uppercase;
     letter-spacing: 0.15rem;
     padding: 0 1rem;
+    @include flex-centered;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   a {
@@ -91,10 +103,18 @@ nav {
   @include clear-m-p;
   @include flex-centered;
   .container {
-    width: 50%;
+    width: 90%;
     @include flex-centered;
     flex-direction: column;
     padding: 1rem 0;
+
+    @include md {
+      width: 75%;
+    }
+
+    @include lg {
+      width: 50%;
+    }
 
     h1 {
       margin-top: 2rem;
@@ -300,7 +320,11 @@ nav {
           @include flex-centered;
           width: 100%;
           position: relative;
-          margin-bottom: 2rem;
+          margin-bottom: 0;
+
+          @include md {
+            margin-bottom: 2rem;
+          }
 
           .left-align {
             text-align: left;
@@ -323,10 +347,15 @@ nav {
               0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
             border-radius: 1.25rem;
             margin: 0.5rem;
-            width: 75%;
+            width: 50%;
             max-height: 500px;
             position: relative;
             top: 1rem;
+
+            @include md {
+              width: 75%;
+              max-height: 500px;
+            }
           }
 
           img.right {
@@ -344,6 +373,10 @@ nav {
           width: 90%;
 
           @include md {
+            width: 75%;
+          }
+
+          @include lg {
             width: 50%;
           }
 
@@ -351,11 +384,12 @@ nav {
           ul,
           ul > li {
             text-align: justify;
-            line-height: 2rem;
+            line-height: 1.5rem;
             font-size: $x-small;
             margin-bottom: 1rem;
 
             @include md {
+              line-height: 2rem;
               font-size: $small;
             }
           }
@@ -376,8 +410,16 @@ nav {
 
 .about-section {
   background: $white;
-  margin-bottom: 20rem;
+  margin-bottom: 10rem;
   @include flex-centered;
+
+  @include rwd(600) {
+    margin-bottom: 15rem;
+  }
+
+  @include lg {
+    margin-bottom: 20rem;
+  }
 
   .container {
     @include flex-centered;
@@ -549,12 +591,13 @@ footer {
   @include side-padding;
   @include clear-m-p;
   padding: 0 1rem;
-  justify-content: space-between;
+  justify-content: space-evenly;
   background: $light;
   height: 10rem;
   flex-direction: column;
 
   @include md {
+    justify-content: space-between;
     flex-direction: row;
   }
 
