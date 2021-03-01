@@ -299,6 +299,10 @@ nav {
           transition: transform 0.5s ease-in-out;
 
           @include md {
+            font-size: $h-medium;
+          }
+
+          @include lg {
             font-size: $large;
           }
 
@@ -347,12 +351,17 @@ nav {
               0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
             border-radius: 1.25rem;
             margin: 0.5rem;
-            width: 50%;
-            max-height: 500px;
+            width: 75%;
+            max-height: 350px;
             position: relative;
             top: 1rem;
 
             @include md {
+              width: 75%;
+              max-height: 400px;
+            }
+
+            @include lg {
               width: 75%;
               max-height: 500px;
             }
@@ -388,7 +397,7 @@ nav {
             font-size: $x-small;
             margin-bottom: 1rem;
 
-            @include md {
+            @include lg {
               line-height: 2rem;
               font-size: $small;
             }

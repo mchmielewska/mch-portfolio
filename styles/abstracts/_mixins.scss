@@ -125,12 +125,17 @@
     @include lg {
       height: $circle-size * 1.1;
     }
+
   }
   
   @mixin full-circle($color) {
     @include circle-shape($color);
-    height: $circle-size * 4;
+    height: $circle-size * 5;
     margin: 0;
+
+    @include sm {
+      height: $circle-size * 4;
+    }
 
     @include rwd(600) {
       height: $circle-size * 2.5;
