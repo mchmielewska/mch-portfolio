@@ -5,21 +5,25 @@ const Navbar = () => {
   return (
     <nav>
       <div className="logo">
-        <Image src="/logo.svg" alt="site logo" width={205} height={50} />
+        <Link href="/">
+          <a>
+            <Image src="/logo.svg" alt="site logo" width={205} height={50} />
+          </a>
+        </Link>
       </div>
       <div className="menu-links">
-      <Link href="/">
-        <a>home</a>
-      </Link>
-      <Link href="/#about">
-        <a>about</a>
-      </Link>
-      <Link href="/#projects">
-        <a>projects</a>
-      </Link>
-      <Link href="/contact">
-        <a>contact</a>
-      </Link>
+        <Link href="/">
+          <a>home</a>
+        </Link>
+        <Link href="/#about">
+          <a>about</a>
+        </Link>
+        <Link href="/#projects">
+          <a>projects</a>
+        </Link>
+        <Link href="/contact">
+          <a>contact</a>
+        </Link>
       </div>
     </nav>
   );

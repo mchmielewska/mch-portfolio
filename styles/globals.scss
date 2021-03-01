@@ -97,6 +97,7 @@ nav {
     padding: 1rem 0;
 
     h1 {
+      margin-top: 2rem;
       font-size: $medium;
       font-family: $serif;
       color: $almost-black;
@@ -116,7 +117,8 @@ nav {
       }
 
       input[type='text'],
-      input[type='email'], textarea {
+      input[type='email'],
+      textarea {
         padding: 0.5rem;
         margin: 0.5rem 0;
         border: solid 1px transparent;
@@ -127,7 +129,9 @@ nav {
         line-height: 2rem;
         text-align: justify;
 
-        &:focus, &:active, &:focus-visible {
+        &:focus,
+        &:active,
+        &:focus-visible {
           border: solid 1px transparent;
           border-bottom: solid 1px $pink;
           outline: none;
@@ -138,7 +142,9 @@ nav {
         resize: none;
         width: 100%;
 
-        &:focus, &:active, &:focus-visible {
+        &:focus,
+        &:active,
+        &:focus-visible {
           border: solid 1px $pink;
           outline: none;
         }
@@ -167,7 +173,9 @@ nav {
           background: $pink;
         }
 
-        &:focus, &:active, &:focus-visible {
+        &:focus,
+        &:active,
+        &:focus-visible {
           outline: none;
         }
       }
@@ -265,10 +273,14 @@ nav {
 
         h3 {
           font-family: $serif;
-          font-size: $large;
+          font-size: $medium;
           text-align: center;
           -webkit-transition: -webkit-transform 0.5s ease-in-out;
           transition: transform 0.5s ease-in-out;
+
+          @include md {
+            font-size: $large;
+          }
 
           &:hover {
             -webkit-transform: scale(1.05);
@@ -329,15 +341,23 @@ nav {
         .details {
           @include flex-centered;
           flex-direction: column;
-          width: 50%;
+          width: 90%;
+
+          @include md {
+            width: 50%;
+          }
 
           p,
           ul,
           ul > li {
             text-align: justify;
             line-height: 2rem;
-            font-size: $small;
+            font-size: $x-small;
             margin-bottom: 1rem;
+
+            @include md {
+              font-size: $small;
+            }
           }
 
           .project-link-icon {
@@ -361,21 +381,36 @@ nav {
 
   .container {
     @include flex-centered;
-    width: 75%;
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 500px));
-    grid-gap: 1rem;
+    width: 95%;
+    padding: 1.5rem;
+    flex-direction: column;
+
+    @include rwd(850) {
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(300px, 650px));
+      grid-gap: 1rem;
+    }
+
+    @include lg {
+      padding: 2rem;
+      width: 90%;
+    }
 
     .about-description {
       grid-column: 1;
-      padding: 1.5rem;
+      padding: 0.5rem;
+
+      @include md {
+        padding: 1.5rem;
+      }
 
       p {
         text-align: justify;
         line-height: 2rem;
         font-size: $x-small;
         margin-bottom: 1rem;
+
       }
 
       @include tech($pink);
@@ -384,14 +419,13 @@ nav {
     .about-image {
       grid-column: 2;
       padding: 1.5rem;
-      border-right: 3px solid $pink;
-      border-radius: 1.25rem;
+      text-align: right;
+
       img.profile-image {
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
           0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
         border-radius: 1.25rem;
         width: 100%;
-        min-width: 350px;
         max-width: 500px;
       }
     }
@@ -410,8 +444,12 @@ nav {
   background: $light;
   @include circle($white);
   .circle {
-    flex-direction: row;
+    flex-direction: column;
     margin-bottom: 0;
+
+    @include sm {
+      flex-direction: row;
+    }
   }
 
   .rotate {
@@ -423,8 +461,21 @@ nav {
   h1 {
     font-family: $serif;
     color: $pink;
-    font-size: $xx-large;
-    line-height: 5rem;
+    line-height: 3rem;
+    font-size: $large;
+
+    @include sm {
+      font-size: $x-large;
+    }
+
+    @include md {
+      line-height: 5rem;
+      font-size: $xm-large;
+    }
+
+    @include lg {
+      font-size: $xx-large;
+    }
   }
 
   h1.welcome-title:hover .rotate {
@@ -436,26 +487,52 @@ nav {
     &:before {
       content: '(';
       font-size: $x-large;
-      position: relative;
-      bottom: -$x-large;
       color: $grey;
+      bottom: $large;
+      display: none;
+
+      @include sm {
+        display: inline-block;
+        position: relative;
+        position: relative;
+        bottom: -$x-large;
+      }
     }
 
     &:after {
       content: ')';
       font-size: $x-large;
-      position: relative;
-      left: 17.5rem;
-      bottom: 7rem;
       color: $grey;
+      display: none;
+
+      @include sm {
+        display: inline-block;
+        position: relative;
+        left: 12.5rem;
+        bottom: 6rem;
+      }
+
+      @include md {
+        left: 17rem;
+        bottom: 7.5rem;
+      }
     }
 
     p {
       font-family: $mono;
-      max-width: 16rem;
       padding-left: 3rem;
       text-align: justify;
-      font-size: $x-small;
+      font-size: 0.8rem;
+      max-width: 11.5rem;
+      line-height: 1rem;
+
+      @include md {
+        max-width: 16rem;
+        font-size: $x-small;
+        line-height: 1.5rem;
+      }
+
+
     }
   }
 
@@ -475,6 +552,11 @@ footer {
   justify-content: space-between;
   background: $light;
   height: 10rem;
+  flex-direction: column;
+
+  @include md {
+    flex-direction: row;
+  }
 
   p {
     @include uppercase;
