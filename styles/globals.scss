@@ -382,6 +382,11 @@ nav {
             position: relative;
             top: 1rem;
 
+            @include sl {
+              width: 50%;
+              max-height: 300px;
+            }
+
             @include md {
               width: 75%;
               max-height: 400px;
@@ -485,8 +490,19 @@ nav {
       p {
         text-align: justify;
         line-height: 2rem;
-        font-size: $x-small;
         margin-bottom: 1rem;
+
+        @include sl {
+          font-size: 0.85rem;
+        }
+
+        @include sm {
+          font-size: $x-small;
+        }
+
+        @include md {
+          font-size: $x-small;
+        }
 
       }
 
@@ -503,7 +519,15 @@ nav {
           0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
         border-radius: 1.25rem;
         width: 100%;
-        max-width: 500px;
+        max-width: 450px;
+
+        @include sl {
+          max-width: 300px
+        }
+
+        @include md {
+          max-width: 500px;
+        }
       }
     }
 
@@ -585,12 +609,12 @@ nav {
       @include sm {
         display: inline-block;
         position: relative;
-        left: 12.5rem;
+        left: 12rem;
         bottom: 6rem;
       }
 
       @include md {
-        left: 17rem;
+        left: 16.5rem;
         bottom: 7.5rem;
       }
     }
@@ -600,11 +624,11 @@ nav {
       padding-left: 3rem;
       text-align: justify;
       font-size: 0.8rem;
-      max-width: 11.5rem;
+      max-width: 11rem;
       line-height: 1rem;
 
       @include md {
-        max-width: 16rem;
+        max-width: 15.5rem;
         font-size: $x-small;
         line-height: 1.5rem;
       }
@@ -618,6 +642,10 @@ nav {
     display: inline-block;
     background: $beige;
     content: '';
+
+    @include sl {
+      height: 25px;
+    }
   }
 }
 

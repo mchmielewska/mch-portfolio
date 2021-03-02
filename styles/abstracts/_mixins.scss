@@ -51,6 +51,10 @@
         0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
       border-radius: 1.25rem;
 
+      @include sl {
+        width: 8.5rem;
+      }
+
       @include sm {
         width: 10rem;
       }
@@ -67,7 +71,7 @@
     img.left {
       transform: rotate(-5deg);
       left: calc(50% - 8rem);
-      top: calc(15% - 150px);
+      top: calc(15% - 175px);
 
       @include rwd(600) {
         top: calc(15% - 250px);
@@ -86,7 +90,7 @@
     img.right {
       transform: rotate(2deg);
       right: calc(50% - 8rem);
-      top: calc(15% - 150px);
+      top: calc(15% - 175px);
 
       @include rwd(600) {
         top: calc(15% - 250px);
@@ -114,6 +118,10 @@
     border-top-right-radius: $circle-size * 2;
     margin-bottom: 15rem;
 
+    @include sl {
+      height: $circle-size * 1.25;
+    }
+
     @include rwd(600) {
       height: $circle-size * 1.25;
     }
@@ -133,6 +141,10 @@
     height: $circle-size * 5;
     margin: 0;
 
+    @include sl {
+      height: $circle-size * 2.25;
+    }
+
     @include sm {
       height: $circle-size * 4;
     }
@@ -142,7 +154,7 @@
     }
 
     @include md {
-      height: $circle-size * 2.25;
+      height: $circle-size * 2.35;
     }
 
     @include lg {
@@ -150,7 +162,7 @@
     }
 
     @include xl {
-      height: $circle-size * 1.5
+      height: $circle-size * 1.75
     }
   }
   
