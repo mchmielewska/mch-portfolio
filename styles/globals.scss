@@ -548,7 +548,8 @@ nav {
     flex-direction: column;
     margin-bottom: 0;
 
-    @include sm {
+
+    @include md {
       flex-direction: row;
     }
   }
@@ -595,6 +596,11 @@ nav {
       @include sm {
         display: inline-block;
         position: relative;
+        bottom: -$x-large;
+      }
+
+      @include md {
+        display: inline-block;
         position: relative;
         bottom: -$x-large;
       }
@@ -614,6 +620,8 @@ nav {
       }
 
       @include md {
+        display: inline-block;
+        position: relative;
         left: 16.5rem;
         bottom: 7.5rem;
       }

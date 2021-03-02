@@ -14,21 +14,27 @@ $screen-xl-min: 1200px;
 
 
 // Small devices
-@mixin sm {
-   @media (min-width: #{$screen-sm-min}) and (orientation: portrait) {
+@mixin sp {
+   @media (min-width: #{$screen-s-min}) and (orientation: portrait) {
        @content;
    }
 }
 
 @mixin sl {
-   @media (min-width: #{$screen-s-min}) and (orientation: landscape) and (max-height: #{$screen-lg-min}) {
+   @media (min-width: #{$screen-s-min}) and (orientation: landscape) {
+      @content;
+  }
+}
+
+@mixin sm {
+   @media (min-width: #{$screen-sm-min}) and (orientation: portrait) {
       @content;
   }
 }
 
 // Medium devices
 @mixin md {
-   @media (min-width: #{$screen-md-min} ) {
+   @media (min-width: #{$screen-md-min}) {
        @content;
    }
 }
